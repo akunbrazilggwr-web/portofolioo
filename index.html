@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Rahman · Portofolio</title>
+    <meta name="author" content="Rahman">
+    <meta name="description" content="Rahman, Bug Hunter dan Developer Bekasi.">
+    <meta name="keywords" content="Rahman, Bug Hunter, Developer, Cybersecurity, Ethical Hacker">
+    <link rel="icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' fill='%233a86ff'%3E🐛%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.2s ease;
+        }
+        
+        /* Light Mode */
+        body.light-mode {
+            background: #f5f7fa;
+            color: #2d3e50;
+        }
+        
+        body.light-mode .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        body.light-mode .logo {
+            color: #2d3e50;
+        }
+        
+        body.light-mode .nav-links a {
+            color: #5a6b7c;
+        }
+        
+        body.light-mode .nav-links a:hover {
+            color: #2563eb;
+        }
+        
+        body.light-mode .badge {
+            background: #f0f4ff;
+            color: #2563eb;
+        }
+        
+        body.light-mode .contact-item {
+            background: #f8fafc;
+            color: #1e293b;
+        }
+        
+        body.light-mode .contact-item i {
+            color: #2563eb;
+        }
+        
+        body.light-mode .contact-item:hover {
+            background: #2563eb;
+            color: #fff;
+        }
+        
+        body.light-mode .skill-tag {
+            background: #f0f4ff;
+            color: #2563eb;
+        }
+        
+        body.light-mode .info-label {
+            color: #64748b;
+        }
+        
+        body.light-mode .prayer-item {
+            background: #f8fafc;
+        }
+        
+        body.light-mode .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        body.light-mode .section-header {
+            color: #1e293b;
+            border-bottom-color: #2563eb;
+        }
+        
+        body.light-mode .time-box {
+            background: #f0f4ff;
+        }
+        
+        body.light-mode input {
+            background: #fff;
+            border-color: #e2e8f0;
+            color: #2d3e50;
+        }
+        
+        body.light-mode .sidenav {
+            background: #fff;
+            border-right: 1px solid #e2e8f0;
+        }
+        
+        body.light-mode .cert-card {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Dark Mode */
+        body.dark-mode {
+            background: #0a0c14;
+            color: #e5e9f0;
+        }
+        
+        body.dark-mode .navbar {
+            background: rgba(10, 12, 20, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1e2a3a;
+        }
+        
+        body.dark-mode .logo {
+            color: #fff;
+        }
+        
+        body.dark-mode .nav-links a {
+            color: #a0b3d9;
+        }
+        
+        body.dark-mode .nav-links a:hover {
+            color: #4f8cff;
+        }
+        
+        body.dark-mode .badge {
+            background: #1a2332;
+            color: #4f8cff;
+            border: 1px solid #2a3649;
+        }
+        
+        body.dark-mode .contact-item {
+            background: #1a2332;
+            color: #fff;
+            border: 1px solid #2a3649;
+        }
+        
+        body.dark-mode .contact-item i {
+            color: #4f8cff;
+        }
+        
+        body.dark-mode .contact-item:hover {
+            background: #2563eb;
+            border-color: #4f8cff;
+        }
+        
+        body.dark-mode .skill-tag {
+            background: #1a2332;
+            color: #4f8cff;
+            border: 1px solid #2a3649;
+        }
+        
+        body.dark-mode .info-icon {
+            color: #4f8cff;
+        }
+        
+        body.dark-mode .info-label {
+            color: #8a9bb5;
+        }
+        
+        body.dark-mode .prayer-item {
+            background: #1a2332;
+            border: 1px solid #2a3649;
+        }
+        
+        body.dark-mode .footer {
+            background: rgba(10, 12, 20, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid #1e2a3a;
+            color: #8a9bb5;
+        }
+        
+        body.dark-mode .section-header {
+            color: #fff;
+            border-bottom-color: #4f8cff;
+        }
+        
+        body.dark-mode .time-box {
+            background: #1a2332;
+        }
+        
+        body.dark-mode input {
+            background: #1a2332;
+            border-color: #2a3649;
+            color: #fff;
+        }
+        
+        body.dark-mode .sidenav {
+            background: #0f1420;
+            border-right: 1px solid #1e2a3a;
+        }
+        
+        body.dark-mode .cert-card {
+            background: #1a2332;
+            border: 1px solid #2a3649;
+        }
+        
+        /* Theme Toggle */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .3s;
+            border-radius: 24px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: #fff;
+            transition: .3s;
+            border-radius: 50%;
+        }
+        
+        input:checked+.slider {
+            background-color: #2563eb;
+        }
+        
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+        
+        /* Navbar */
+        .navbar {
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .logo {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #2563eb;
+        }
+        
+        /* Sidenav */
+        .sidenav {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100vh;
+            z-index: 1000;
+            padding: 2rem 1.5rem;
+            transition: left 0.3s ease;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sidenav.open {
+            left: 0;
+        }
+        
+        .sidenav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .sidenav-logo {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .close-btn {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #2563eb;
+        }
+        
+        .sidenav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        
+        .sidenav-links a {
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        
+        body.light-mode .sidenav-links a {
+            color: #2d3e50;
+            border-bottom-color: #e2e8f0;
+        }
+        
+        body.light-mode .sidenav-links a:hover {
+            color: #2563eb;
+        }
+        
+        body.dark-mode .sidenav-links a {
+            color: #e5e9f0;
+            border-bottom-color: #1e2a3a;
+        }
+        
+        body.dark-mode .sidenav-links a:hover {
+            color: #4f8cff;
+        }
+        
+        .sidenav-footer {
+            position: absolute;
+            bottom: 2rem;
+            left: 1.5rem;
+            right: 1.5rem;
+        }
+        
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 700px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        /* Section Header */
+        .section-header {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 3px solid;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        /* Profile */
+        .profile {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem 0;
+        }
+        
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #2563eb;
+        }
+        
+        /* Skeleton untuk Profile Picture */
+        .skeleton-profile {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+            border: 3px solid #2563eb;
+        }
+        
+        body.dark-mode .skeleton-profile {
+            background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+            background-size: 200% 100%;
+        }
+        
+        .skeleton-text {
+            height: 20px;
+            background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+        
+        body.dark-mode .skeleton-text {
+            background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+            background-size: 200% 100%;
+        }
+        
+        .skeleton-text-sm {
+            height: 14px;
+            width: 60%;
+        }
+        
+        .skeleton-badge {
+            display: inline-block;
+            width: 80px;
+            height: 28px;
+            background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+            border-radius: 30px;
+            margin-right: 0.5rem;
+        }
+        
+        /* Skeleton untuk Sertifikat Card */
+        .skeleton-cert-card {
+            border-radius: 10px;
+            padding: 0.8rem;
+            background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+        
+        body.dark-mode .skeleton-cert-card {
+            background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+            background-size: 200% 100%;
+        }
+        
+        .skeleton-cert-img {
+            width: 100%;
+            aspect-ratio: 1.3/1;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        .skeleton-cert-name {
+            height: 16px;
+            width: 80%;
+            margin: 0.5rem auto 0;
+            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        @keyframes skeleton-loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+        
+        .profile-info h1 {
+            font-size: 1.6rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .profile-info .handle {
+            color: #2563eb;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+        
+        .badge-container {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            border-radius: 30px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        /* Info Items */
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid;
+        }
+        
+        body.light-mode .info-item {
+            border-bottom-color: #e2e8f0;
+        }
+        
+        body.dark-mode .info-item {
+            border-bottom-color: #1e2a3a;
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .info-icon {
+            width: 30px;
+        }
+        
+        .info-label {
+            font-size: 0.8rem;
+        }
+        
+        .info-value {
+            font-weight: 500;
+        }
+        
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+        }
+        
+        .contact-item {
+            border-radius: 10px;
+            padding: 0.8rem;
+            text-align: center;
+            text-decoration: none;
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+        }
+        
+        .contact-item i {
+            font-size: 1.2rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .contact-handle {
+            font-size: 0.7rem;
+        }
+        
+        /* Skills */
+        .skill-tag {
+            display: inline-block;
+            border-radius: 20px;
+            padding: 0.3rem 1rem;
+            margin: 0.2rem;
+            font-size: 0.85rem;
+        }
+        
+        /* Map */
+        #visitormap {
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+            cursor: default;
+            border: 1px solid;
+        }
+        
+        body.light-mode #visitormap {
+            border-color: #e2e8f0;
+        }
+        
+        body.dark-mode #visitormap {
+            border-color: #2a3649;
+        }
+        
+        .map-meta {
+            font-size: 0.8rem;
+        }
+        
+        /* Prayer */
+        .prayer-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        
+        .prayer-item {
+            border-radius: 8px;
+            padding: 0.8rem;
+            text-align: center;
+        }
+        
+        .prayer-name {
+            font-size: 0.75rem;
+        }
+        
+        .prayer-time {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .time-box {
+            border-radius: 8px;
+            padding: 0.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .countdown {
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 0.5rem 1rem;
+            border: 1px solid;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            outline: none;
+        }
+        
+        .search-box input:focus {
+            border-color: #2563eb;
+        }
+        
+        .search-box button {
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .search-box button:hover {
+            background: #1d4ed8;
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .footer-links a {
+            font-size: 1.1rem;
+            transition: 0.2s;
+        }
+        
+        body.light-mode .footer-links a {
+            color: #64748b;
+        }
+        
+        body.light-mode .footer-links a:hover {
+            color: #2563eb;
+        }
+        
+        body.dark-mode .footer-links a {
+            color: #8a9bb5;
+        }
+        
+        body.dark-mode .footer-links a:hover {
+            color: #4f8cff;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+             z-index: 9999;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 80vh;
+            border-radius: 10px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        .lightbox-prev,
+        .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .lightbox-prev {
+            left: 20px;
+        }
+        
+        .lightbox-next {
+            right: 20px;
+        }
+
+        /* ===== QRIS Modal (animated & colorful) ===== */
+        .qris-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(8, 6, 20, 0.75);
+            backdrop-filter: blur(6px);
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .qris-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .qris-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(50px);
+            opacity: 0.55;
+            pointer-events: none;
+            animation: qris-float 6s ease-in-out infinite;
+        }
+
+        .qris-blob.b1 {
+            width: 220px;
+            height: 220px;
+            background: #ff5e7e;
+            top: 8%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .qris-blob.b2 {
+            width: 260px;
+            height: 260px;
+            background: #4f8cff;
+            bottom: 6%;
+            right: 8%;
+            animation-delay: 1.2s;
+        }
+
+        .qris-blob.b3 {
+            width: 180px;
+            height: 180px;
+            background: #ffd23f;
+            bottom: 15%;
+            left: 6%;
+            animation-delay: 2.4s;
+        }
+
+        @keyframes qris-float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(15px, -20px) scale(1.1); }
+        }
+
+        .qris-card {
+            position: relative;
+            background: #fff;
+            border-radius: 24px;
+            padding: 2px;
+            max-width: 340px;
+            width: 100%;
+            overflow: hidden;
+            transform: scale(0.85) translateY(30px);
+            opacity: 0;
+            animation: qris-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .qris-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            padding: 3px;
+            background: conic-gradient(from 0deg, #ff5e7e, #ffd23f, #4f8cff, #7c3aed, #ff5e7e);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: qris-spin 4s linear infinite;
+        }
+
+        @keyframes qris-spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes qris-pop {
+            0% { transform: scale(0.8) translateY(40px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        .qris-inner {
+            position: relative;
+            background: #fff;
+            border-radius: 22px;
+            padding: 1.8rem 1.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .qris-icon {
+            width: 54px;
+            height: 54px;
+            margin: 0 auto 0.7rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff5e7e, #ffd23f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            animation: qris-bounce 1.6s ease-in-out infinite;
+            box-shadow: 0 8px 20px rgba(255, 94, 126, 0.4);
+        }
+
+        @keyframes qris-bounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-6px) scale(1.05); }
+        }
+
+        .qris-card h3 {
+            color: #1e1b2e;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            background: linear-gradient(90deg, #ff5e7e, #7c3aed, #4f8cff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .qris-card p {
+            color: #6b7280;
+            font-size: 0.85rem;
+            margin-bottom: 1.1rem;
+        }
+
+        .qris-img-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 250px;
+            margin: 0 auto 1.2rem;
+            border-radius: 16px;
+            padding: 10px;
+            background: linear-gradient(135deg, #ff5e7e, #ffd23f, #4f8cff, #7c3aed);
+            background-size: 300% 300%;
+            animation: qris-gradient-shift 3s ease infinite;
+        }
+
+        @keyframes qris-gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .qris-img-wrap img {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+            background: #fff;
+        }
+
+        .qris-scanline {
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #4f8cff, transparent);
+            border-radius: 3px;
+            box-shadow: 0 0 12px 2px rgba(79, 140, 255, 0.8);
+            animation: qris-scan 2.2s ease-in-out infinite;
+        }
+
+        @keyframes qris-scan {
+            0% { top: 10px; opacity: 0.9; }
+            50% { top: calc(100% - 14px); opacity: 1; }
+            100% { top: 10px; opacity: 0.9; }
+        }
+
+        .qris-close {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            z-index: 2;
+        }
+
+        .qris-close:hover {
+            background: #ff5e7e;
+            color: #fff;
+            transform: rotate(90deg);
+        }
+
+        .qris-actions {
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .qris-actions a,
+        .qris-actions button {
+            flex: 1;
+            padding: 0.65rem;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .qris-download {
+            background: linear-gradient(135deg, #4f8cff, #7c3aed);
+            color: #fff;
+            box-shadow: 0 6px 16px rgba(79, 140, 255, 0.4);
+        }
+
+        .qris-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(79, 140, 255, 0.55);
+        }
+
+        .qris-close-btn {
+            background: #f1f5f9;
+            color: #334155;
+        }
+
+        .qris-close-btn:hover {
+            background: #e2e8f0;
+        }
+        
+        /* Donate Button */
+        #trakteer-overlay-button {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #be1e2d, #e63b4b);
+            color: #fff;
+            padding: 12px 22px;
+            border-radius: 50px;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(190, 30, 45, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 9999;
+            border: none;
+            outline: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: donate-pulse 2.4s ease-in-out infinite;
+        }
+
+        @keyframes donate-pulse {
+            0%, 100% { box-shadow: 0 8px 20px rgba(190, 30, 45, 0.4); }
+            50% { box-shadow: 0 8px 28px rgba(190, 30, 45, 0.7); }
+        }
+        
+        #trakteer-overlay-button:hover {
+            background: linear-gradient(135deg, #d42a3a, #f54555);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(190, 30, 45, 0.6);
+        }
+        
+        /* Swiper */
+        .swiper {
+            width: 100%;
+            padding: 1rem 0 2rem;
+        }
+        
+        .cert-card {
+            border-radius: 10px;
+            padding: 0.8rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .cert-card img {
+            width: 100%;
+            aspect-ratio: 1.3/1;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .cert-name {
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .spin {
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .search-box button {
+                padding: 0.5rem;
+            }
+            
+            #trakteer-overlay-button {
+                bottom: 20px;
+                right: 20px;
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        // ==== GANTI LINK GAMBAR QRIS KAMU DI SINI (harus .jpg atau .png) ====
+        const QRIS_IMAGE_URL = "https://cdn.odzre.my.id/4it.jpg";
+
+        // Komponen Skeleton untuk Profile Picture
+        const SkeletonProfile = () => (
+            <div className="skeleton-profile"></div>
+        );
+
+        // Komponen Skeleton untuk Profile Info
+        const SkeletonProfileInfo = () => (
+            <div className="profile-info" style={{ width: '100%' }}>
+                <div className="skeleton-text" style={{ width: '70%', height: '32px' }}></div>
+                <div className="skeleton-text" style={{ width: '50%', height: '18px', marginTop: '8px' }}></div>
+                <div style={{ display: 'flex', gap: '0.8rem', marginTop: '12px', flexWrap: 'wrap' }}>
+                    <div className="skeleton-badge"></div>
+                    <div className="skeleton-badge"></div>
+                    <div className="skeleton-badge"></div>
+                    <div className="skeleton-badge"></div>
+                </div>
+            </div>
+        );
+
+        // Komponen Skeleton untuk Sertifikat Cards (3 cards)
+        const SkeletonCertificates = () => (
+            <div style={{ display: 'flex', gap: '1rem', overflow: 'hidden', padding: '1rem 0' }}>
+                {[1, 2, 3].map((i) => (
+                    <div key={i} className="skeleton-cert-card" style={{ flex: '1', minWidth: '200px' }}>
+                        <div className="skeleton-cert-img"></div>
+                        <div className="skeleton-cert-name"></div>
+                    </div>
+                ))}
+            </div>
+        );
+
+        // Komponen Pop Up QRIS beranimasi
+        const QrisModal = ({ open, onClose, imageUrl }) => {
+            if (!open) return null;
+            return (
+                <div className="qris-overlay active" onClick={onClose}>
+                    <div className="qris-blob b1"></div>
+                    <div className="qris-blob b2"></div>
+                    <div className="qris-blob b3"></div>
+                    <div className="qris-card" onClick={(e) => e.stopPropagation()}>
+                        <div className="qris-inner">
+                            <div className="qris-close" onClick={onClose}>
+                                <i className="bi bi-x-lg"></i>
+                            </div>
+                            <div className="qris-icon">
+                                <i className="fas fa-mug-hot"></i>
+                            </div>
+                            <h3>Scan QRIS untuk Donasi</h3>
+                            <p>Terima kasih sudah mau support Rahman </p>
+                            <div className="qris-img-wrap">
+                                <img src={imageUrl} alt="QRIS Donasi" />
+                                <div className="qris-scanline"></div>
+                            </div>
+                            <div className="qris-actions">
+                                <a className="qris-download" href={imageUrl} download="qris-donasi.jpg">
+                                    <i className="bi bi-download"></i> Unduh
+                                </a>
+                                <button className="qris-close-btn" onClick={onClose}>Tutup</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        function App() {
+            const [theme, setTheme] = useState('light-mode');
+            const [sidenavOpen, setSidenavOpen] = useState(false);
+            const [currentTime, setCurrentTime] = useState(new Date());
+            const [prayerData, setPrayerData] = useState(null);
+            const [prayerLoading, setPrayerLoading] = useState(false);
+            const [prayerError, setPrayerError] = useState(false);
+            const [kota, setKota] = useState('KAB. BEKASI');
+            const [nextPrayer, setNextPrayer] = useState(null);
+            const [countdown, setCountdown] = useState('00:00:00');
+            const [certs, setCerts] = useState([]);
+            const [certsLoading, setCertsLoading] = useState(true);
+            const [certsError, setCertsError] = useState(false);
+            const [lightboxOpen, setLightboxOpen] = useState(false);
+            const [currentCert, setCurrentCert] = useState(0);
+            const [map, setMap] = useState(null);
+            const [profileLoading, setProfileLoading] = useState(true);
+            const [qrisOpen, setQrisOpen] = useState(false);
+            const swiperInstance = useRef(null);
+
+            useEffect(() => {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    setTheme('dark-mode');
+                    document.body.classList.add('dark-mode');
+                } else {
+                    setTheme('light-mode');
+                    document.body.classList.add('light-mode');
+                }
+                
+                // Simulasi loading profile (biar keliatan skeletonnya)
+                setTimeout(() => {
+                    setProfileLoading(false);
+                }, 1500);
+            }, []);
+
+            useEffect(() => {
+                document.body.classList.remove('light-mode', 'dark-mode');
+                document.body.classList.add(theme);
+                localStorage.setItem('theme', theme === 'dark-mode' ? 'dark' : 'light');
+            }, [theme]);
+
+            useEffect(() => {
+                const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+                return () => clearInterval(timer);
+            }, []);
+
+            useEffect(() => {
+                if (!map && document.getElementById('visitormap')) {
+                    const newMap = L.map('visitormap', {
+                        dragging: false, touchZoom: false, scrollWheelZoom: false,
+                        doubleClickZoom: false, boxZoom: false, keyboard: false, zoomControl: false
+                    }).setView([-7.4125, 110.9], 12);
+                    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(newMap);
+                    const marker = L.marker([-7.4125, 110.9]).addTo(newMap);
+                    setMap(newMap);
+                    
+                    if ("geolocation" in navigator) {
+                        navigator.geolocation.getCurrentPosition((pos) => {
+                            newMap.setView([pos.coords.latitude, pos.coords.longitude], 14);
+                            marker.setLatLng([pos.coords.latitude, pos.coords.longitude]);
+                            document.getElementById('visitor-ip').innerHTML = '📍 Lokasi terdeteksi: ' + pos.coords.latitude.toFixed(2) + ', ' + pos.coords.longitude.toFixed(2);
+                        }, () => {
+                            document.getElementById('visitor-ip').innerHTML = '📍 Sragen, Jawa Tengah (estimasi)';
+                        });
+                    } else {
+                        document.getElementById('visitor-ip').innerHTML = '📍 Sragen, Jawa Tengah';
+                    }
+                }
+            }, []);
+
+            useEffect(() => {
+                loadCerts();
+            }, []);
+
+            useEffect(() => {
+                if (!certsLoading && certs.length > 0 && !swiperInstance.current && document.querySelector('.certSwiper')) {
+                    setTimeout(() => {
+                        swiperInstance.current = new Swiper('.certSwiper', {
+                            slidesPerView: 1,
+                            spaceBetween: 20,
+                            loop: true,
+                            pagination: { el: '.swiper-pagination', clickable: true },
+                            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+                            breakpoints: {
+                                640: { slidesPerView: 2 },
+                                1024: { slidesPerView: 3 }
+                            }
+                        });
+                    }, 200);
+                }
+            }, [certsLoading, certs]);
+
+            const loadCerts = async () => {
+                try {
+                    const res = await fetch('sert.zip');
+                    if (!res.ok) throw new Error('Zip not found');
+                    const zip = await JSZip.loadAsync(await res.arrayBuffer());
+                    const files = [];
+                    zip.forEach((path, file) => {
+                        const ext = path.split('.').pop().toLowerCase();
+                        if (['png', 'jpg', 'jpeg', 'webp', 'gif'].includes(ext)) files.push(file);
+                    });
+                    if (!files.length) throw new Error('No images');
+                    const loadedCerts = [];
+                    for (let f of files) {
+                        const blob = await f.async('blob');
+                        loadedCerts.push({ name: f.name, src: URL.createObjectURL(blob) });
+                    }
+                    setCerts(loadedCerts);
+                    setCertsLoading(false);
+                } catch (err) {
+                    console.warn(err);
+                    setCertsError(true);
+                    setCertsLoading(false);
+                }
+            };
+
+            const cariJadwal = async () => {
+                if (!kota.trim()) return;
+                setPrayerLoading(true);
+                setPrayerError(false);
+                try {
+                    const res = await fetch(`https://api-faa.my.id/faa/jadwal-sholat?kota=${encodeURIComponent(kota)}`);
+                    const data = await res.json();
+                    if (data.status && data.jadwal) {
+                        setPrayerData(data);
+                    } else throw new Error('Invalid response');
+                } catch {
+                    setPrayerError(true);
+                } finally {
+                    setPrayerLoading(false);
+                }
+            };
+
+            useEffect(() => {
+                if (prayerData && prayerData.jadwal) {
+                    const interval = setInterval(updateNextPrayer, 1000);
+                    updateNextPrayer();
+                    return () => clearInterval(interval);
+                }
+            }, [prayerData]);
+
+            const updateNextPrayer = () => {
+                if (!prayerData || !prayerData.jadwal) return;
+                const now = new Date();
+                const currentSeconds = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
+                
+                const prayers = [
+                    { id: 'imsak', name: 'Imsak', time: prayerData.jadwal.imsak, seconds: timeToSeconds(prayerData.jadwal.imsak) },
+                    { id: 'subuh', name: 'Subuh', time: prayerData.jadwal.subuh, seconds: timeToSeconds(prayerData.jadwal.subuh) },
+                    { id: 'dzuhur', name: 'Dzuhur', time: prayerData.jadwal.dzuhur, seconds: timeToSeconds(prayerData.jadwal.dzuhur) },
+                    { id: 'ashar', name: 'Ashar', time: prayerData.jadwal.ashar, seconds: timeToSeconds(prayerData.jadwal.ashar) },
+                    { id: 'maghrib', name: 'Maghrib', time: prayerData.jadwal.maghrib, seconds: timeToSeconds(prayerData.jadwal.maghrib) },
+                    { id: 'isya', name: 'Isya', time: prayerData.jadwal.isya, seconds: timeToSeconds(prayerData.jadwal.isya) }
+                ];
+
+                const next = prayers.find(p => p.seconds > currentSeconds) || prayers[0];
+                setNextPrayer(next);
+                
+                let diffSeconds = next.seconds > currentSeconds ? 
+                    next.seconds - currentSeconds : 
+                    (86400 - currentSeconds + next.seconds);
+                
+                const hours = Math.floor(diffSeconds / 3600);
+                const minutes = Math.floor((diffSeconds % 3600) / 60);
+                const secs = diffSeconds % 60;
+                setCountdown(`${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`);
+            };
+
+            const timeToSeconds = (t) => {
+                if (!t || t === '--:--') return 0;
+                const parts = t.split(':');
+                if (parts.length < 2) return 0;
+                const h = parseInt(parts[0], 10);
+                const m = parseInt(parts[1], 10);
+                return (h * 3600) + (m * 60);
+            };
+
+            const toggleTheme = () => {
+                setTheme(prev => prev === 'light-mode' ? 'dark-mode' : 'light-mode');
+            };
+
+            const openLightbox = (idx) => {
+                setCurrentCert(idx);
+                setLightboxOpen(true);
+            };
+
+            const changeImage = (step) => {
+                setCurrentCert(prev => (prev + step + certs.length) % certs.length);
+            };
+
+            useEffect(() => {
+                setTimeout(() => cariJadwal(), 300);
+            }, []);
+
+            const formatTime = (date) => {
+                return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}:${String(date.getSeconds()).padStart(2, '0')}`;
+            };
+
+            const formatDate = (date) => {
+                return date.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            };
+
+            return (
+                <>
+                    <nav className="navbar">
+                        <div className="nav-container">
+                            <div className="nav-left">
+                                <div className="logo">Rahman</div>
+                                <div className="nav-links">
+                                    <a href="#profile">Profile</a>
+                                    <a href="#skills">Skills</a>
+                                    <a href="#contact">Contact</a>
+                                    <a href="#certificates">Sertifikat</a>
+                                </div>
+                            </div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                <div className="theme-toggle">
+                                    <i className="bi bi-sun" style={{ color: '#f59e0b' }}></i>
+                                    <label className="switch">
+                                        <input type="checkbox" checked={theme === 'dark-mode'} onChange={toggleTheme} />
+                                        <span className="slider"></span>
+                                    </label>
+                                    <i className="bi bi-moon" style={{ color: '#4f8cff' }}></i>
+                                </div>
+                                <div className="menu-toggle" onClick={() => setSidenavOpen(true)}>
+                                    <i className="bi bi-list"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <div className={`sidenav ${sidenavOpen ? 'open' : ''}`}>
+                        <div className="sidenav-header">
+                            <div className="sidenav-logo">My Porto :D</div>
+                            <div className="close-btn" onClick={() => setSidenavOpen(false)}>
+                                <i className="bi bi-x-lg"></i>
+                            </div>
+                        </div>
+                        <div className="sidenav-links">
+                            <a href="#profile" onClick={() => setSidenavOpen(false)}>Profile</a>
+                            <a href="#skills" onClick={() => setSidenavOpen(false)}>Skills</a>
+                            <a href="#contact" onClick={() => setSidenavOpen(false)}>Contact</a>
+                            <a href="#certificates" onClick={() => setSidenavOpen(false)}>Sertifikat</a>
+                        </div>
+                        <div className="sidenav-footer">
+                            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+                                <a href="https://www.instagram.com/rahman_nice1?igsi=eDJqbGlweXFyc2V4" target="_blank" rel="noopener noreferrer"><i className="bi bi-instagram"></i></a>
+                                <a href="https://t.me" target="_blank" rel="noopener noreferrer"><i className="bi bi-telegram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={`overlay ${sidenavOpen ? 'active' : ''}`} onClick={() => setSidenavOpen(false)}></div>
+
+                    <div className="container">
+                        {/* Profile Section dengan Skeleton */}
+                        <div id="profile" className="profile">
+                            {profileLoading ? (
+                                <>
+                                    <SkeletonProfile />
+                                    <SkeletonProfileInfo />
+                                </>
+                            ) : (
+                                <>
+                                    <img src="https://cdn.odzre.my.id/qcf.png" alt="Rahman" className="profile-pic" />
+                                    <div className="profile-info">
+                                        <h1>Rahman</h1>
+                                        <div className="handle">@Rahman · G.D.S</div>
+                                        <div className="badge-container">
+                                            <span className="badge"><i className="bi bi-calendar"></i> 06 Jun 2011</span>
+                                            <span className="badge"><i className="bi bi-geo-alt"></i>  Bekasi,Jawa Barat</span>
+                                            <span className="badge"><i className="bi bi-building"></i> Web Security</span>
+                                            <span className="badge"><i className="bi bi-bug"></i> Bug Hunter</span>
+                                        </div>
+                                    </div>
+                                </>
+                            )}
+                        </div>
+
+                        <div>
+                            <div className="section-header">About Me</div>
+                            <div className="info-item">
+                                <div className="info-icon"><i className="bi bi-calendar"></i></div>
+                                <div>
+                                    <div className="info-label">Birthday</div>
+                                    <div className="info-value">06 Jun 2011</div>
+                                </div>
+                            </div>
+                            <div className="info-item">
+                                <div className="info-icon"><i className="bi bi-geo-alt"></i></div>
+                                <div>
+                                    <div className="info-label">Address</div>
+                                    <div className="info-value">Bekasi,Jawa Barat</div>
+                                    <div style={{ fontSize: '0.85rem', opacity: 0.7 }}></div>
+                                </div>
+                            </div>
+                            <div className="info-item">
+                                <div className="info-icon"><i className="bi bi-bug"></i></div>
+                                <div>
+                                    <div className="info-label">Experience In</div>
+                                    <div className="info-value">Bug Hunter</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="contact" style={{ marginTop: '2rem' }}>
+                            <div className="section-header">Contact</div>
+                            <div className="contact-grid">
+                                <a href="https://wa.me/6285710715718" target="_blank" rel="noopener noreferrer" className="contact-item">
+                                    <i className="bi bi-whatsapp"></i>
+                                    <div>WhatsApp</div>
+                                    <div className="contact-handle">085710715718</div>
+                                </a>
+                                <a href="https://t.me" target="_blank" rel="noopener noreferrer" className="contact-item">
+                                    <i className="bi bi-telegram"></i>
+                                    <div>Telegram</div>
+                                    <div className="contact-handle">@Raxxt</div>
+                                </a>
+                                <a href="https://www.instagram.com/rahman_nice1?igsi=eDJqbGlweXFyc2V4" target="_blank" rel="noopener noreferrer" className="contact-item">
+                                    <i className="bi bi-instagram"></i>
+                                    <div>Instagram</div>
+                                    <div className="contact-handle">Rahman_nice1</div>
+                                </a>
+                                <a href="mailto: raxxtm@gmail.com" className="contact-item">
+                                    <i className="bi bi-envelope"></i>
+                                    <div>Email</div>
+                                    <div className="contact-handle">raxxtm</div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div id="skills" style={{ marginTop: '2rem' }}>
+                            <div className="section-header">Skill</div>
+                            <div>
+                                <span className="skill-tag">HTML</span>
+                                <span className="skill-tag">CSS</span>
+                                <span className="skill-tag">JavaScript</span>
+                                <span className="skill-tag">Python</span>
+                                <span className="skill-tag">React.js</span>
+                                <span className="skill-tag">Node.js</span>
+                                <span className="skill-tag">Linux</span>
+                                <span className="skill-tag">Bug Research</span>
+                                <span className="skill-tag">Pentesting</span>
+                                <span className="skill-tag">Web Security</span>
+                                <span className="skill-tag">Fotografi</span>
+                                <span className="skill-tag">Editing</span>
+                            </div>
+                        </div>
+
+                        {/* Sertifikat Section dengan Skeleton Loading */}
+                        <div id="certificates" style={{ marginTop: '2rem' }}>
+                            <div className="section-header">Sertifikat</div>
+                            {certsLoading ? (
+                                <SkeletonCertificates />
+                            ) : certsError ? (
+                                <div style={{ textAlign: 'center', color: '#dc2626', padding: '2rem' }}>
+                                    ❌ Gagal muat sertifikat (sert.zip tidak ditemukan)
+                                </div>
+                            ) : certs.length === 0 ? (
+                                <div style={{ textAlign: 'center', padding: '1rem' }}>Belum ada sertifikat ditampilkan.</div>
+                            ) : (
+                                <div className="swiper certSwiper">
+                                    <div className="swiper-wrapper">
+                                        {certs.map((cert, idx) => (
+                                            <div key={idx} className="swiper-slide">
+                                                <div className="cert-card" onClick={() => openLightbox(idx)}>
+                                                    <img src={cert.src} alt="certificate" />
+                                                    <div className="cert-name">{cert.name.length > 30 ? cert.name.substr(0, 27) + '...' : cert.name}</div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="swiper-button-next"></div>
+                                    <div className="swiper-button-prev"></div>
+                                    <div className="swiper-pagination"></div>
+                                </div>
+                            )}
+                        </div>
+
+                        <div style={{ marginTop: '2rem' }}>
+                    </div>
+
+                        <div style={{ marginTop: '2rem', marginBottom: '2rem' }}>
+                            <div className="section-header">Jadwal Sholat</div>
+                            <div className="search-box">
+                                <input type="text" placeholder="Kota (contoh: KAB. BEKASI)" value={kota} onChange={(e) => setKota(e.target.value)} />
+                                <button onClick={cariJadwal}>Cari</button>
+                            </div>
+                            <div className="time-box">
+                                <div style={{ fontSize: '1.5rem', fontWeight: 600 }}>{formatTime(currentTime)}</div>
+                                <div style={{ opacity: 0.7 }}>{formatDate(currentTime)}</div>
+                            </div>
+                            {prayerLoading && <div style={{ textAlign: 'center', padding: '1rem' }}><i className="bi bi-arrow-repeat spin"></i> Memuat jadwal...</div>}
+                            {prayerError && <div style={{ textAlign: 'center', color: '#dc2626', padding: '1rem' }}>Gagal memuat jadwal, coba lagi nanti.</div>}
+                            {prayerData && !prayerLoading && (
+                                <>
+                                    <div style={{ textAlign: 'center', marginBottom: '0.8rem' }}>
+                                        <span style={{ fontWeight: 600 }}>{prayerData.kota || kota}</span> · <span>{prayerData.tanggal || '-'}</span>
+                                    </div>
+                                    <div className="prayer-grid">
+                                        <div className="prayer-item"><div className="prayer-name">Imsak</div><div className="prayer-time">{prayerData.jadwal.imsak || '--:--'}</div></div>
+                                        <div className="prayer-item"><div className="prayer-name">Subuh</div><div className="prayer-time">{prayerData.jadwal.subuh || '--:--'}</div></div>
+                                        <div className="prayer-item"><div className="prayer-name">Dzuhur</div><div className="prayer-time">{prayerData.jadwal.dzuhur || '--:--'}</div></div>
+                                        <div className="prayer-item"><div className="prayer-name">Ashar</div><div className="prayer-time">{prayerData.jadwal.ashar || '--:--'}</div></div>
+                                        <div className="prayer-item"><div className="prayer-name">Maghrib</div><div className="prayer-time">{prayerData.jadwal.maghrib || '--:--'}</div></div>
+                                        <div className="prayer-item"><div className="prayer-name">Isya</div><div className="prayer-time">{prayerData.jadwal.isya || '--:--'}</div></div>
+                                    </div>
+                                    {nextPrayer && (
+                                        <div style={{ marginTop: '1rem', padding: '0.8rem', background: '#2563eb', color: '#fff', borderRadius: '8px', textAlign: 'center' }}>
+                                            <div style={{ fontSize: '0.8rem' }}>Sholat Berikutnya</div>
+                                            <div style={{ fontSize: '1.2rem', fontWeight: 600 }}>{nextPrayer.name}</div>
+                                            <div style={{ fontSize: '1rem' }}>{nextPrayer.time}</div>
+                                            <div className="countdown">{countdown}</div>
+                                        </div>
+                                    )}
+                                </>
+                            )}
+                        </div>
+                    </div>
+
+                    <footer className="footer">
+                        <div className="footer-content">
+                            <div>© 2026 Rahman</div>
+                            <div className="footer-links">
+                                <a href="https://www.instagram.com/rahman_nice1?igsi=eDJqbGlweXFyc2V4" target="_blank" rel="noopener noreferrer"><i className="bi bi-instagram"></i></a>
+                                <a href="https://t.me" target="_blank" rel="noopener noreferrer"><i className="bi bi-telegram"></i></a>
+                                <a href="https://wa.me/6285710715718" target="_blank" rel="noopener noreferrer"><i className="bi bi-whatsapp"></i></a>
+                            </div>
+                            <div>BugTraceHunter</div>
+                        </div>
+                    </footer>
+
+                    <div className={`lightbox ${lightboxOpen ? 'active' : ''}`}>
+                        <span className="lightbox-close" onClick={() => setLightboxOpen(false)}>&times;</span>
+                        <span className="lightbox-prev" onClick={() => changeImage(-1)}>‹</span>
+                        <img className="lightbox-img" src={certs[currentCert]?.src || ''} alt="certificate preview" />
+                        <span className="lightbox-next" onClick={() => changeImage(1)}>›</span>
+                    </div>
+
+                </>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+</body>
+</html>
